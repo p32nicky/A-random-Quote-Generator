@@ -47,22 +47,30 @@ var printedOutput;
 */
 
 // * `getRandomQuote` function
-function getRandomQuote(quotes) {
+function getRandomQuote() {
   console.log(quotes.length);
-
-  var number = Math.floor(Math.random() * (quotes.length) + 1);
+  var number = Math.floor(Math.random() * quotes.length + 1);
   var chosenQuote = quotes[number];
   console.log(chosenQuote);
   return chosenQuote; 
 }
 
-getRandomQuote();
-
+getRandomQuote(quotes);
+/*
 // `printQuote` function
-function printQuote(){
-  var choice = quotes[getRandomQuote()];
-
+function printQuote(getRandomQuote){
+  var outputString = '';
+  for(i = 0; i<=quotes.length;i+=1){
+    outputString = '<h1>'quotes.[i][i]'</h>';
+    outputString += '<p>'quotes.Source[i][i]'</p>';
+    outputString += '<p>'quotes.Citation[i][i]'</p>';
+    outputString += '<p>'quotes.Year[i][i]'</p>';
+  }
+  return outputString;
 }
+
+printQuote();
+
 
 /***
  * click event listener for the print quote button
@@ -70,3 +78,4 @@ function printQuote(){
 ***/
 
 //document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
