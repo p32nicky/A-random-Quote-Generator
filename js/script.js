@@ -11,7 +11,6 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
 
 
  //`quotes` array 
-var printedOutput;
  var quotes = [
   { Quote: "Frankly my dear, I don't give a damn",
     Source: "Clark Gable",
@@ -55,17 +54,17 @@ function getRandomQuote() {
   return chosenQuote; 
 }
 
-getRandomQuote(quotes);
-/*
 // `printQuote` function
-function printQuote(getRandomQuote){
-  var outputString = '';
-  for(i = 0; i<=quotes.length;i+=1){
-    outputString = '<h1>'quotes.[i][i]'</h>';
-    outputString += '<p>'quotes.Source[i][i]'</p>';
-    outputString += '<p>'quotes.Citation[i][i]'</p>';
-    outputString += '<p>'quotes.Year[i][i]'</p>';
-  }
+
+var outputString = '';
+
+function printQuote(chosenQuote){
+  getRandomQuote(chosenQuote);
+  outputString += getRandomQuote[];
+  outputString += getRandomQuote[];
+  outputString += getRandomQuote[];
+  outputString += getRandomQuote[];
+  alert(outputString);
   return outputString;
 }
 
@@ -77,5 +76,5 @@ printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
