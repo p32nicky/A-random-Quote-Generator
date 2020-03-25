@@ -69,19 +69,19 @@ function getRandomQuote() {
 // `printQuote` function
 
 
-function printQuote(chosenQuote, onPageDisplay){
+function printQuote(chosenQuote){
   var outputString = getRandomQuote(chosenQuote);
-  onPageDisplay = "<p class>='quote' ${chosenQuote.Quote}</p>";
-  onPageDisplay += "<p class>= 'source' ${chosenQuote.Source}";
+  onPageDisplay = "<p class>='quote' chosenQuote.Quote</p>";
+  onPageDisplay += "<p class>= 'source' chosenQuote.Source";
  
-  if(chosenQuote.Citation === 'null'){
-      onPageDisplay += "<span class> class= 'source' ${chosenQuote.Citation} </span>";
+ if(chosenQuote.Citation === 'null'){
+      onPageDisplay += "<span class> class= 'source' ${outPutString.Citation} </span>";
   }if(chosenQuote.Year === 'null'){
-      onPageDisplay += "<span> class class= 'source' ${chosenQuote.Year} </span>";
+      onPageDisplay += "<span> class class= 'source' ${outPutString.Year} </span>";
+  
+  
   }
-
-  onPageDisplay += "</p>";
-  return onPageDisplay;
+  onPageDisplay += "+ </p>";
   document.getElementById('quote-box').innerHTML = onPageDisplay; 
 
 }
@@ -92,6 +92,8 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
-***/
-
-
+ * 
+ * 
+  }
+  */
+//-->
