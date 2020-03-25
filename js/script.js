@@ -9,8 +9,6 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-//Main Output Variable
- var onPageDisplay
  
  //Random Color BackGround
  //Random number generator for each RGB number then assigns to background color
@@ -68,7 +66,7 @@ function getRandomQuote() {
 
 // `printQuote` function
 
-
+var onPageDisplay = '';
 function printQuote(chosenQuote){
   var outputString = getRandomQuote(chosenQuote);
   onPageDisplay = "<p class= 'quote' > chosenQuote.Quote</p>";
@@ -76,14 +74,14 @@ function printQuote(chosenQuote){
  
  if(chosenQuote.Citation === 'null'){
       onPageDisplay += '<span class>= "citation" chosenQuote.Citation </span>';
-  }if(chosenQuote.Year === 'null'){
+  }else if(chosenQuote.Year === 'null'){
       onPageDisplay += '<span class>= "year" chosenQuote.Year </span>';
   }
   onPageDisplay += '+ </p>';
   return onPageDisplay;
 }
 
-document.getElementById('quote-box').innerHTML = onPageDisplay; 
+document.getElementById('quote-box').innerHTML = printQuote; 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 
