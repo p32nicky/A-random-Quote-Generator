@@ -9,7 +9,20 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
+//Main Output Variable
+ var onPageDisplay
+ 
+ //Random Color BackGround
+ //Random number generator for each RGB number then assigns to background color
+ var colorNumberOne = 0;
+ var colorNumberTwo = 0;
+ var colorNumberThree = 0;
 
+colorNumberOne = Math.floor(Math.random(parseInt) * 999);
+colorNumberTwo = Math.floor(Math.random(parseInt) * 999);
+colorNumberThree = Math.floor(Math.random(parseInt) * 999);
+document.body.style.backgroundColor = 'rgb(' + colorNumberOne + ',' + colorNumberTwo + ',' + colorNumberThree + ')';
+ 
  //`quotes` array 
  var quotes = [
   { Quote: "Frankly my dear, I don't give a damn",
@@ -20,12 +33,11 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
   { Quote: "Here's looking at you, kid",
     Source: "Humphrey Bogart",
     Citation: "Casablanca",
-    Year: 1942
-  },
+    Year: null},
   { Quote: "Fashten your seat belts. It's going to be a bumpy night.",
     Source: "Margo Channing",
     Citation: "All About Eve",
-    Year: 1950
+    Year: null
   },
   { Quote: "Bond. James Bond",
     Source: "Sean Connery",
@@ -34,7 +46,7 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
   },
   { Quote: "Don’t you know a sarcasm when you hear it?",
     Source: "Lucy",
-    Citation: "A Charlie Brown Christmas",
+    Citation: null,
     Year: 1965
   }
 ]
@@ -48,7 +60,7 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
 // * `getRandomQuote` function
 function getRandomQuote() {
   console.log(quotes.length);
-  var number = Math.floor(Math.random() * quotes.length + 1);
+  var number = Math.floor(Math.random() * quotes.length);
   var chosenQuote = quotes[number];
   console.log(chosenQuote);
   return chosenQuote; 
@@ -56,19 +68,25 @@ function getRandomQuote() {
 
 // `printQuote` function
 
-var outputString = '';
 
-function printQuote(chosenQuote){
-  getRandomQuote(chosenQuote);
-  outputString += getRandomQuote[];
-  outputString += getRandomQuote[];
-  outputString += getRandomQuote[];
-  outputString += getRandomQuote[];
-  alert(outputString);
-  return outputString;
+function printQuote(chosenQuote, onPageDisplay){
+  var outputString = getRandomQuote(chosenQuote);
+  onPageDisplay = "<p class>='quote' ${chosenQuote.Quote}</p>";
+  onPageDisplay += "<p class>= 'source' ${chosenQuote.Source}";
+ 
+  if(chosenQuote.Citation === 'null'){
+      onPageDisplay += "<span class> class= 'source' ${chosenQuote.Citation} </span>";
+  }if(chosenQuote.Year === 'null'){
+      onPageDisplay += "<span> class class= 'source' ${chosenQuote.Year} </span>";
+  }
+
+  onPageDisplay += "</p>";
+  return onPageDisplay;
+  document.getElementById('quote-box').innerHTML = onPageDisplay; 
+
 }
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
-printQuote();
 
 
 /***
@@ -76,5 +94,4 @@ printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
