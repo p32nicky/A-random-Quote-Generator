@@ -71,19 +71,21 @@ function getRandomQuote() {
 
 function printQuote(chosenQuote){
   var outputString = getRandomQuote(chosenQuote);
-  onPageDisplay = <p class="quote"> chosenQuote.Quote</p>;
-  onPageDisplay += <p class= "source"> chosenQuote.Source;
+  onPageDisplay = "<p class= 'quote' > chosenQuote.Quote</p>";
+  onPageDisplay += "<p class= 'source'> chosenQuote.Source";
  
  if(chosenQuote.Citation === 'null'){
-      onPageDisplay += <span class>= "citation" chosenQuote.Citation </span>;
+      onPageDisplay += '<span class>= "citation" chosenQuote.Citation </span>';
   }if(chosenQuote.Year === 'null'){
-      onPageDisplay += <span class>= "year" chosenQuote.Year </span>;
+      onPageDisplay += '<span class>= "year" chosenQuote.Year </span>';
   }
-  onPageDisplay += "+ </p>";
-  document.getElementById('quote-box').innerHTML = onPageDisplay; 
-
+  onPageDisplay += '+ </p>';
+  return onPageDisplay;
 }
+
+document.getElementById('quote-box').innerHTML = onPageDisplay; 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
 
 
 
