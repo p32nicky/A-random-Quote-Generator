@@ -12,49 +12,18 @@ https://www.marieclaire.com/culture/g19738923/most-iconic-movie-quotes-year-you-
  
  //Random Color BackGround
  //Random number generator for each RGB number then assigns to background color
- var colorNumberOne = 0;
- var colorNumberTwo = 0;
- var colorNumberThree = 0;
+ //Set it to the on click listener
+function colorBackGround(){
+  var colorNumberOne = 0;
+  var colorNumberTwo = 0;
+  var colorNumberThree = 0;
 
-colorNumberOne = Math.floor(Math.random(parseInt) * 999);
-colorNumberTwo = Math.floor(Math.random(parseInt) * 999);
-colorNumberThree = Math.floor(Math.random(parseInt) * 999);
-document.body.style.backgroundColor = 'rgb(' + colorNumberOne + ',' + colorNumberTwo + ',' + colorNumberThree + ')';
- 
- //`quotes` array 
- var quotes = [
-  { Quote: "Frankly my dear, I don't give a damn",
-    Source: "Clark Gable",
-    Citation: "Gone with the Wind",
-    Year: 1939
-  },
-  { Quote: "Here's looking at you, kid",
-    Source: "Humphrey Bogart",
-    Citation: "Casablanca",
-    Year: null},
-  { Quote: "Fashten your seat belts. It's going to be a bumpy night.",
-    Source: "Margo Channing",
-    Citation: "All About Eve",
-    Year: null
-  },
-  { Quote: "Bond. James Bond",
-    Source: "Sean Connery",
-    Citation: "James Bond",
-    Year: 1962
-  },
-  { Quote: "Don’t you know a sarcasm when you hear it?",
-    Source: "Lucy",
-    Citation: null,
-    Year: 1965
-  }
-]
-
-//Checking output in console
-/*for (var i = 0; i<=4; i+= 1){
-  console.log(quotes[i]);
+  colorNumberOne = Math.floor(Math.random(parseInt) * 999);
+  colorNumberTwo = Math.floor(Math.random(parseInt) * 999);
+  colorNumberThree = Math.floor(Math.random(parseInt) * 999);
+  document.body.style.backgroundColor = 'rgb(' + colorNumberOne + ',' + colorNumberTwo + ',' + colorNumberThree + ')';
 }
-*/
-
+ 
 // * `getRandomQuote` function
 function getRandomQuote() {
   console.log(quotes.length);
@@ -65,33 +34,40 @@ function getRandomQuote() {
 }
 
 // `printQuote` function
-
 var onPageDisplay = '';
-function printQuote(chosenQuote){
-  var outputString = getRandomQuote(chosenQuote);
-  onPageDisplay = "<p class= 'quote' > chosenQuote.Quote</p>";
-  onPageDisplay += "<p class= 'source'> chosenQuote.Source";
+colorBackGround();
+function printQuote(){
+  var outputString = getRandomQuote();
+  onPageDisplay = '<p class= "quote">' + outputString.Quote + '</p>';
+  onPageDisplay += '<p class= "source">' + outputString.Source;
  
- if(chosenQuote.Citation === 'null'){
-      onPageDisplay += '<span class>= "citation" chosenQuote.Citation </span>';
-  }else if(chosenQuote.Year === 'null'){
-      onPageDisplay += '<span class>= "year" chosenQuote.Year </span>';
+  // Checking which fields exist for the quote and building string from that
+ if(outputString.Citation && outputString.Year){
+      onPageDisplay += '<span class= "citation">' + outputString.Citation + '</span>';
+      onPageDisplay += '<span class= "year">' + outputString.Year + '</span></p>';
+  }else if(outputString.Citation){
+      onPageDisplay += '<span class= "citation">' +  outputString.Citation + '</span></p>';
+  }else if (outputString.Year){
+      onPageDisplay += '<span class= "year">' +  outputString.Year + '</span></p>';
+  }else if (outputString.Tag){
+    onPageDisplay += '<span class= "tags">' +  outputString.Tag + '</span></p>';
+    
   }
-  onPageDisplay += '+ </p>';
-  return onPageDisplay;
+ 
+  document.getElementById('quote-box').innerHTML = onPageDisplay; 
+ 
 }
 
-document.getElementById('quote-box').innerHTML = printQuote; 
+//Click listener to run printQuote and color changing 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", colorBackGround, false);
 
+function resetQuote(){
 
+   //20 Second Timer
+   var quoteRefresh = window.setInterval(printQuote, colorBackGround, 20000);
+   var quoteRefresh = window.setInterval(colorBackGround, 20000);
 
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
- * 
- * 
   }
-  */
-//-->
+
+
