@@ -26,6 +26,7 @@ function colorBackGround(){
  
 // * `getRandomQuote` function
 function getRandomQuote() {
+  colorBackGround();
   console.log(quotes.length);
   var number = Math.floor(Math.random() * quotes.length);
   var chosenQuote = quotes[number];
@@ -38,36 +39,38 @@ var onPageDisplay = '';
 colorBackGround();
 function printQuote(){
   var outputString = getRandomQuote();
-  onPageDisplay = '<p class= "quote">' + outputString.Quote + '</p>';
-  onPageDisplay += '<p class= "source">' + outputString.Source;
+  onPageDisplay = '<p class= "quote">' + outputString.quote + '</p>';
+  onPageDisplay += '<p class= "source">' + outputString.source;
  
   // Checking which fields exist for the quote and building string from that
- if(outputString.Citation && outputString.Year){
-      onPageDisplay += '<span class= "citation">' + outputString.Citation + '</span>';
-      onPageDisplay += '<span class= "year">' + outputString.Year + '</span></p>';
-  }else if(outputString.Citation){
-      onPageDisplay += '<span class= "citation">' +  outputString.Citation + '</span></p>';
-  }else if (outputString.Year){
-      onPageDisplay += '<span class= "year">' +  outputString.Year + '</span></p>';
-  }else if (outputString.Tag){
-    onPageDisplay += '<span class= "tags">' +  outputString.Tag + '</span></p>';
-    
+  // Test's if
+ if(outputString.citation && outputString.year){
+      onPageDisplay += '<span class= "citation">' + outputString.citation + '</span>';
+      onPageDisplay += '<span class= "year">' + outputString.year + '</span>';
+  }if(outputString.citation){
+      onPageDisplay += '<span class= "citation">' +  outputString.citation + '</span>';
+  }if (outputString.year){
+      onPageDisplay += '<span class= "year">' +  outputString.year + '</span>';
+  }if (outputString.tag){
+    onPageDisplay += '<span class= "tags">' +  outputString.tag + '</span>';
   }
  
+  onPageDisplay += '</p>';
   document.getElementById('quote-box').innerHTML = onPageDisplay; 
  
 }
 
-//Click listener to run printQuote and color changing 
+//Click listener to run printQuote and color changing (---moved color change to printQuote function)
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-document.getElementById('load-quote').addEventListener("click", colorBackGround, false);
+//document.getElementById('load-quote').addEventListener("click", colorBackGround, false);
+//Fresh window every 20 seconds
+window.setInterval(printQuote, 20000);
 
+
+/*
 function resetQuote(){
-
    //20 Second Timer
    var quoteRefresh = window.setInterval(printQuote, colorBackGround, 20000);
-   var quoteRefresh = window.setInterval(colorBackGround, 20000);
-
   }
-
+*/
 
